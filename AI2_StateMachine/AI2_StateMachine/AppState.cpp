@@ -6,15 +6,15 @@
 void 
 LogoState::OnEnter() {
  
-  sf::Texture logo;
-  logo.loadFromFile("DarkDeep.png");
+ 
+  m_pApp->m_windowManager.m_textureLogo.loadFromFile("DarkDeep.png");
   std::cout << "I'm at the Logo"<< std::endl;
 
   m_pApp->m_windowManager.setSpritePosition(sf::Vector2f(400, 200));
   m_pApp->m_windowManager.SetRectangle(sf::Vector2f(800, 600),
                                        sf::Vector2f(300, 300),
                                        sf::Color::Black);
-  m_pApp->m_windowManager.setSpriteTexture(logo);
+  m_pApp->m_windowManager.setSpriteTexture(m_pApp->m_windowManager.m_textureLogo);
    
 }
 
@@ -25,7 +25,7 @@ LogoState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
       (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Space)) {
     
-    m_pApp->setState(&m_pApp->m_menuState);
+    m_pApp->setState(m_pApp->m_menuState);
   
   }
 }
@@ -56,13 +56,13 @@ MenuState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
       (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::O)) {
 
-    m_pApp->setState(&m_pApp->m_optionState);
+    m_pApp->setState(m_pApp->m_optionState);
   
   }
   else if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Enter)) {
 
-    m_pApp->setState(&m_pApp->m_playState);
+    m_pApp->setState(m_pApp->m_playState);
   }
 }
 
@@ -88,20 +88,20 @@ void PlayState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
       (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape)) {
     
-    m_pApp->setState(&m_pApp->m_pauseState);
+    m_pApp->setState(m_pApp->m_pauseState);
   
   }
   else if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
            (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::G)) {
     
     m_pApp->m_stateStack.pop();
-    m_pApp->setState(&m_pApp->m_gameOverState);
+    m_pApp->setState(m_pApp->m_gameOverState);
 
   }
   else if((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
           (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::H)) {
 
-    m_pApp->setState(&m_pApp->m_helpState);
+    m_pApp->setState(m_pApp->m_helpState);
   
   }
 }
@@ -131,13 +131,13 @@ PauseState::OnUpdate() {
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape || m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Enter)) {
     
     m_pApp->m_stateStack.pop();
-    m_pApp->setState(&m_pApp->m_playState);
+    m_pApp->setState(m_pApp->m_playState);
   
   }
   else if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
            (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::O)) {
     
-    m_pApp->setState(&m_pApp->m_optionState);
+    m_pApp->setState(m_pApp->m_optionState);
   
   }
 
@@ -163,7 +163,7 @@ GameOverState::OnUpdate() {
   std::cout << "Game Over Update" << std::endl;
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
       (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Space)) {
-    m_pApp->setState(&m_pApp->m_menuState);
+    m_pApp->setState(m_pApp->m_menuState);
   }
 }
 
@@ -195,7 +195,7 @@ HelpState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape)){
     m_pApp->m_windowManager.setTextColor(sf::Color::Black);
-    m_pApp->setState(&m_pApp->m_playState);
+    m_pApp->setState(m_pApp->m_playState);
   
   }
 }
@@ -221,23 +221,23 @@ OptionsState::OnUpdate() {
   std::cout << "Options' Update" << std::endl;
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Num1)) {
-    m_pApp->setState(&m_pApp->m_gameplayState);
+    m_pApp->setState(m_pApp->m_gameplayState);
   }
   else if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Num2)) {
-    m_pApp->setState(&m_pApp->m_graphicState);
+    m_pApp->setState(m_pApp->m_graphicState);
   }
   else if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Num3)) {
-    m_pApp->setState(&m_pApp->m_soundStae);
+    m_pApp->setState(m_pApp->m_soundStae);
   }
   else if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape)) {
     if (m_pApp->m_isPaused) {
-      m_pApp->setState(&m_pApp->m_pauseState);
+      m_pApp->setState(m_pApp->m_pauseState);
     }
     else {
-      m_pApp->setState(&m_pApp->m_menuState);
+      m_pApp->setState(m_pApp->m_menuState);
     }
   }
 
@@ -266,7 +266,7 @@ GameplayState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape)) {
 
-    m_pApp->setState(&m_pApp->m_optionState);
+    m_pApp->setState(m_pApp->m_optionState);
   
   }
 
@@ -291,7 +291,7 @@ GraphicsState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape)) {
     
-    m_pApp->setState(&m_pApp->m_optionState);
+    m_pApp->setState(m_pApp->m_optionState);
   
   }
 }
@@ -316,7 +316,7 @@ SoundState::OnUpdate() {
   if ((m_pApp->m_windowManager.m_event.type == sf::Event::KeyPressed) &&
     (m_pApp->m_windowManager.m_event.key.code == sf::Keyboard::Escape)) {
 
-    m_pApp->setState(&m_pApp->m_optionState);
+    m_pApp->setState(m_pApp->m_optionState);
   
   }
 }

@@ -3,8 +3,7 @@
 
 class Window {
  public:
-  
-   Window() {m_font.loadFromFile("Roboto-Bold.ttf");
+   Window() { m_font.loadFromFile("Robot Crush.ttf");
              m_text.setCharacterSize(30);};
   ~Window() {};
   
@@ -77,4 +76,5 @@ class Window {
   sf::Font m_font;
   sf::Text m_text;
   sf::Event m_event;
+  sf::Texture m_textureLogo;
 };

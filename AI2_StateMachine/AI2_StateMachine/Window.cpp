@@ -106,9 +106,9 @@ Window::setSpritePosition(sf::Vector2f position) {
 
 void
 Window::setSpriteTexture(const sf::Texture& texture) {
-
+  m_sprite.setTextureRect(sf::IntRect(10, 10, 32, 32));
   m_sprite.setTexture(texture, true);
-
+  m_sprite.setColor(sf::Color(255, 255, 255, 255));
 }
 
 void

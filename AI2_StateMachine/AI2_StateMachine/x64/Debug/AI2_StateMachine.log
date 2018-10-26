@@ -1,6 +1,11 @@
-﻿  AI2_StateMachine.cpp
+﻿  pch.cpp
+  AI2_StateMachine.cpp
   App.cpp
   AppState.cpp
+c:\users\ivan\documents\uad\7mo cuatri\ai 2\ai_fsm\ai2_statemachine\ai2_statemachine\appstate.cpp(258): warning C4129: 'P': unrecognized character escape sequence
+c:\users\ivan\documents\uad\7mo cuatri\ai 2\ai_fsm\ai2_statemachine\ai2_statemachine\appstate.cpp(285): warning C4129: 'P': unrecognized character escape sequence
+c:\users\ivan\documents\uad\7mo cuatri\ai 2\ai_fsm\ai2_statemachine\ai2_statemachine\appstate.cpp(309): warning C4129: 'P': unrecognized character escape sequence
   Window.cpp
   Generating Code...
-  AI2_StateMachine.vcxproj -> C:\Users\Ivan\source\repos\AI2_StateMachine\x64\Debug\AI2_StateMachine.exe
+  LINK : C:\Users\Ivan\Documents\UAD\7mo Cuatri\AI 2\AI_FSM\AI2_StateMachine\x64\Debug\AI2_StateMachine.exe not found or not built by the last incremental link; performing full link
+  AI2_StateMachine.vcxproj -> C:\Users\Ivan\Documents\UAD\7mo Cuatri\AI 2\AI_FSM\AI2_StateMachine\x64\Debug\AI2_StateMachine.exe

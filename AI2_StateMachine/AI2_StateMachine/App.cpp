@@ -5,17 +5,17 @@
 App::App() {
 
   m_currentState = nullptr;
-  m_logoState =  LogoState();
-  m_menuState = MenuState();
-  m_playState = PlayState();
-  m_pauseState = PauseState();
-  m_gameOverState = GameOverState();
-  m_helpState = HelpState();
-  m_optionState = OptionsState();
-  m_gameplayState = GameplayState();
-  m_graphicState = GraphicsState();
-  m_soundStae = SoundState();
-  setState(&m_logoState);
+  m_logoState = new LogoState();
+  m_menuState = new MenuState();
+  m_playState = new PlayState();
+  m_pauseState = new PauseState();
+  m_gameOverState = new GameOverState();
+  m_helpState = new HelpState();
+  m_optionState = new OptionsState();
+  m_gameplayState = new GameplayState();
+  m_graphicState = new GraphicsState();
+  m_soundStae = new SoundState();
+  setState(m_logoState);
   m_windowManager.Create();
 
 }
